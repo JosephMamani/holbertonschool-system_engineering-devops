@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
-# Creating a symbolic link
-sudo sed -i 's/8080/80/g' /etc/nginx/sites-enabled/default
-sudo pkill -l nginx
+# Script that change the port to 80 & create a zombie process
+sed -i "s/8080/80/" /etc/nginx/sites-enabled/default
+sudo service nginx restart
+kill -9 "$(cat /var/run/nginx.pid)"
