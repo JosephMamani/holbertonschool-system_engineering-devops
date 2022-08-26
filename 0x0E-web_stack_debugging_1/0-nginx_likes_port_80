@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# Creating a symbolic link
+ln -s -f /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
+service nginx restart
+service nginx status
